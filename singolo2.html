@@ -3,108 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="singolo2.css">
-  <title>Singolo2</title>
+  <link rel="stylesheet" href="style.css">
+  <title>Singolo</title>
 </head>
 <body>
-  <main class="main">
-    <section class="portfolio">
-      <div class="wrapper">
-        <div class="portfolio__content">
-          <h2>Portfolio</h2>
-          <p class="">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-        </div>
-        <!-- <div class="portfolio__tag">
-          <span class="tag tag_selected">All</span>
-          <span class="tag tag_bordered">Web Design</span>
-          <span class="tag tag_bordered">Graphic Design</span>
-          <span class="tag tag_bordered">Artwork</span> -->
-          <div class="portfolio__tag">
-          <ul class="tag__four">
-            <li class="tag_all selected">All</li>
-            <li class="tag_web">Web Design</li>
-            <li class="tag_graphic">Graphic Design</li>
-            <li class="tag_artwork">Artwork</li>
-          </ul>
-        </div> 
-        <!--<div class="portfolio__tag">
-          <ul>
-            <li class="tag tag_all">All</li>
-            <li class="tag tag_web">Web Design</li>
-            <li class="tag tag_graphic">Graphic Design</li>
-            <li class="tag tag_artwork">Artwork</li>
-          </ul>
-        </div>-->
-        <ul class="layout-4-column">
-          <li><img src="assets/img/portfolio/Image1.png" alt="portfolio"></li>
-          <li><img src="assets/img/portfolio/Image2.png" alt="portfolio"></li>
-          <li><img src="assets/img/portfolio/Image3.png" alt="portfolio"></li>
-          <li><img src="assets/img/portfolio/Image4.png" alt="portfolio"></li>
-          <li><img src="assets/img/portfolio/Image5.png" alt="portfolio"></li>
-          <li><img src="assets/img/portfolio/Image6.png" alt="portfolio"></li>
-          <li><img src="assets/img/portfolio/Image7.png" alt="portfolio"></li>
-          <li><img src="assets/img/portfolio/Image8.png" alt="portfolio"></li>
-          <li><img src="assets/img/portfolio/Image9.png" alt="portfolio"></li>
-          <li><img src="assets/img/portfolio/Image10.png" alt="portfolio"></li>
-          <li><img src="assets/img/portfolio/Image11.png" alt="portfolio"></li>
-          <li><img src="assets/img/portfolio/Image12.png" alt="portfolio"></li>
-        </ul>
+	 <section id="portfolio" class="portfolio">
+    <div class="wrapper portfolio__wrapper">
+      <h2 class="portfolio__title">Portfolio</h2>
+      <p class="portfolio__text">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget laciana odio sem nec elit.</p>
+      <div class="tags portfolio__tags">
+        <span class="tag tag_bordered">All</span>
+        <span class="tag tag_bordered">Web Design</span>
+        <span class="tag tag_bordered">Graphic Design</span>
+        <span class="tag tag_bordered">Artwork</span>
       </div>
-    </section>
-    <section class="about__us section-about">
-      <div class="wrapper">
-        <div class="about__us__content about">
-          <h2>About Us</h2>
-          <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+      <div class="layout-4-column project-wrapper">
+        <div class="line__top">
+          <img src="assets/1.jpg" alt="1">
         </div>
-        <div class="layout-3-column">
-          <article class="employee person">
-            <div class="employee__content">
-              <img src="assets/img/About_us/Adam_Jensen.png" alt="Adam Jensen">
-              <div class="employee__name">
-                <h3>Adam Jensen</h3>
-                <p class="carryover">Quisque luctus, quam eget molestie commodo, lacus purus cursus purus, nec rutrum tellus dolor id lorem.</p>
-              </div>
-              <div class="tool__icon">
-                <span class="icon"><a href="#"><img src="assets/img/icon/facebook.svg" alt="Facebook"></a></span>
-                <span class="icon"><a href="#"><img src="assets/img/icon/google.svg" alt="Google"></a></span>
-                <span class="icon"><a href="#"><img src="assets/img/icon/twitter.svg" alt="Twitter"></a></span>
-                <span class="icon"><a href="#"><img src="assets/img/icon/linkedIn.svg" alt="LinkedIn"></a></span>
-              </div>
-            </div>
-          </article>
-          <article class="employee person">
-            <div class="employee__content">
-              <img src="assets/img/About_us/Desmond_Miles.png" alt="Desmond Miles">
-              <div class="employee__name">
-                <h3>Desmond Miles</h3>
-                <p class="carryover">Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam laoreet, viverra lacus ut, ultrices velit.</p>
-              </div>
-              <div class="tool__icon">
-                <span class="icon"><a href="#"><img src="assets/img/icon/facebook.svg" alt="Facebook"></a></span>
-                <span class="icon"><a href="#"><img src="assets/img/icon/google.svg" alt="Google"></a></span>
-                <span class="icon"><a href="#"><img src="assets/img/icon/twitter.svg" alt="Twitter"></a></span>
-                <span class="icon"><a href="#"><img src="assets/img/icon/linkedIn.svg" alt="LinkedIn"></a></span>
-              </div>
-            </div>
-          </article>
-          <article class="employee person">
-            <div class="employee__content">
-              <img src="assets/img/About_us/Scolara_Visari.png" alt="Scolara_Visari">
-              <div class="employee__name">
-                <h3>Scolara Visari</h3>
-                <p>Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis. Quisque condimentum.</p>
-              </div>
-              <div class="tool__icon">
-                <span class="icon"><a href="#"><img src="assets/img/icon/facebook.svg" alt="Facebook"></a></span>
-                <span class="icon"><a href="#"><img src="assets/img/icon/google.svg" alt="Google"></a></span>
-                <span class="icon"><a href="#"><img src="assets/img/icon/twitter.svg" alt="Twitter"></a></span>
-                <span class="icon"><a href="#"><img src="assets/img/icon/linkedIn.svg" alt="LinkedIn"></a></span>
-              </div>
-            </div>
-          </article>
+        <div class="line__top">
+          <img src="assets/2.jpg" alt="2">
+        </div>
+        <div class="line__top">
+          <img src="assets/3.jpg" alt="3">
+        </div>
+        <div class="line__top">
+          <img src="assets/4.jpg" alt="4">
+        </div>
+        <div class="line">
+          <img src="assets/5.jpg" alt="5">
+        </div>
+        <div class="line">
+          <img src="assets/6.jpg" alt="6">
+        </div>
+        <div class="line">
+          <img src="assets/7.jpg" alt="7">
+        </div>
+        <div class="line">
+          <img src="assets/8.jpg" alt="8">
+        </div>
+        <div class="line">
+          <img src="assets/9.jpg" alt="9">
+        </div>
+        <div class="line">
+          <img src="assets/10.jpg" alt="10">
+        </div>
+        <div class="line">
+          <img src="assets/11.jpg" alt="11">
+        </div>
+        <div class="line">
+          <img src="assets/12.jpg" alt="12">
         </div>
       </div>
-    </section>
-</body>
-</html>
+    </div>
+  </section>
+  <section class="about__us">
+    <div class="wrapper wrapper__about_us">
+      <h2 class="about__us_title">About Us</h2>
+      <p class="about__us_description">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimen. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+      <div class="layout-3-column">
+        <article class="person">
+          <img src="assets/adam.jpg" alt="Adam Jensen">
+          <h3 class="person__title">Adam Jensen</h3>
+          <p class="person__description">Quisque luctus, quam eget molestie commodo, lacus purus cursus purus, nec rutrum tellus dolor id lorem.</p>
+          <div class="ico__social">
+            <div class="circle little_circle">
+              <img src="assets/facebook.svg" alt="facebook" class="ico facebook">
+            </div>
+            <div class="circle little_circle">
+              <img src="assets/google.svg" alt="google" class="ico google">
+            </div>
+            <div class="circle little_circle">
+              <img src="assets/twitter.svg" alt="twitter" class="ico twitter">
+            </div>
+            <div class="circle little_circle">
+              <img src="assets/linkedin.svg" alt="linkedin" class="ico linkedin">
+            </div>
+          </div>
+        </article>
+        <article class="person">
+          <img src="assets/desmond.jpg" alt="Desmond Miles">
+          <h3 class="person__title">Desmond Miles</h3>
+          <p class="person__description">Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam laoreet, viverra lacus ut, ultrices velit.</p>
+          <div class="ico__social">
+            <div class="circle little_circle">
+              <img src="assets/facebook.svg" alt="facebook" class="ico facebook">
+            </div>
+            <div class="circle little_circle">
+              <img src="assets/google.svg" alt="google" class="ico google">
+            </div>
+            <div class="circle little_circle">
+              <img src="assets/twitter.svg" alt="twitter" class="ico twitter">
+            </div>
+            <div class="circle little_circle">
+              <img src="assets/linkedin.svg" alt="linkedin" class="ico linkedin">
+            </div>
+          </div>
+        </article>
+        <article class="person">
+          <img src="assets/scolara.jpg" alt="Scolara Visari">
+          <h3 class="person__title">Scolara Visari</h3>
+          <p class="person__description">Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis. Quisque condimentum.</p>
+          <div class="ico__social">
+            <div class="circle little_circle">
+              <img src="assets/facebook.svg" alt="facebook" class="ico facebook">
+            </div>
+            <div class="circle little_circle">
+              <img src="assets/google.svg" alt="google" class="ico google">
+            </div>
+            <div class="circle little_circle">
+              <img src="assets/twitter.svg" alt="twitter" class="ico twitter">
+            </div>
+            <div class="circle little_circle">
+              <img src="assets/linkedin.svg" alt="linkedin" class="ico linkedin">
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+ </body>
