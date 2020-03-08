@@ -1,3 +1,4 @@
 ## Singolo
 
-# GhosTfromby.github.io
+https://GhosTfromby.github.io/singolo
+
