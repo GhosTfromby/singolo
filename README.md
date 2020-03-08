@@ -1,1 +1,4 @@
-https://GhosTfromby.github.io/singolo/index.html
+## Singolo
+
+### Solution
+https://GhosTfromby.github.io/singolo
