@@ -1,101 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap&subset=latin-ext" rel="stylesheet">
-    <link href="singolo1.css" rel="stylesheet">
-    <title>Singolo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Singolo</title>
 </head>
 <body>
-    <header>
-        <h1>SINGOLO</h1>
-        <nav class="header__navigation">
-            <ul class="navigation">
-                <li class='dt'>HOME</li>
-                <li class='dt'>SERVICES</li>
-                <li class='dt'>PORTFOLIO</li>
-                <li class='dt'>ABOUT</li>
-                <li>CONTACT</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        <div class='chev_prev'>
-            <img src="assets/chev_prev.png">
-        </div>
-
-        <div class='phone_book'>
-            <img src="assets/phone_book.png">
-        </div>
-
-        <div class='phone_album'>
-            <img src="assets/phone_album.png">
-        </div>
-
-        <div class='chev_next'>
-            <img src="assets/chev_next.png">
-        </div>
-
-    </main>
-
-    <footer>
-        <div class='service'>
-            <h2>Our Services</h2>
-            <p class='string1'>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor</p>
-            <p class='string2'>ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-        </div>
-
-        <div class='advantages'>
-            <div class="line1">
-                <span>
-                    <div class="footImg"><img src="assets/pen.png"></div>
-                    <div class="footAdv">
-                        <h3>Custom Design</h3>
-                        <p>Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam laoreet, viverra lacus ut, ultrices velit.</p>
-                    </div> 
-                </span>
-                <span>
-                    <div class="footImg"><img src="assets/bulb.png"></div>
-                    <div class="footAdv">
-                        <h3>Inovative Ideas</h3>
-                        <p>Quisque luctus, quam eget molestie com-<wbr>modo, lacus purus cursus purus, nec rutrum tellus dolor id lorem.</p>
-                    </div>
-                </span>
-                <span>
-                    <div class="footImg"><img src="assets/heart.png"></div>
-                    <div class="footAdv">
-                        <h3>Love Is The Answer</h3>
-                        <p>Nulla sed nunc et tortor luctus faucibus. Morbi at aliquet turpis, et consequat felis. Quisque condimentum.</p>
-                    </div>
-                </span>
-            </div>
-            <div class="line2">
-                <span>
-                    <div class="footImg"><img src="assets/phone.png"></div>
-                    <div class="footAdv">
-                        <h3>Responsive Layout</h3>
-                        <p>Sed porttitor placerat rhoncus. In at nunc tellus. Maecenas blandit nunc ligula. Prae-<wbr>sent elit leo.</p>
-                    </div>
-                </span>
-                <span>
-                    <div class="footImg"><img src="assets/bubble.png"></div>
-                    <div class="footAdv">
-                        <h3>24 / 7 Support</h3>
-                        <p>Vivamus vel quam lacinia, tincidunt dui non, vehicula nisi. Nulla a sem erat. Pellen-<wbr>tesque egestas venenatis lorem.</p>
-                    </div>
-                </span>
-                <span>
-                    <div class="footImg"><img src="assets/star.png"></div>
-                    <div class="footAdv">
-                        <h3>Feel Like A Star</h3>
-                        <p>Quisque hendrerit purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus.</p>
-                    </div>
-                </span>
-            </div>
-            
-        </div>
-    </footer>
+  <header class="header">
+    <div class="wrapper header__wrapper">
+      <a href="#" class="logo">
+        <h1 class="logo__content">SINGOLO<span class="logo__content_colored">*</span></h1>
+      </a>
+      <div class="header__navigation">
+        <ul class="navigation">
+          <li class="navigation__item"><a href="#" class="navigation__link">HOME</a></li>
+          <li class="navigation__item"><a href="#" class="navigation__link">SERVICES</a></li>
+          <li class="navigation__item"><a href="#" class="navigation__link">PORTFOLIO</a></li>
+          <li class="navigation__item"><a href="#" class="navigation__link">ABOUT</a></li>
+          <li class="navigation__item"><a href="#" class="navigation__link">CONTACT</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  <div class="iphone">
+    <div class="wrapper iphone__wrapper">
+      <img src="assets/chev_prev.png" alt="prev" class="wrapper__chev">
+      <div class="iphone__content">
+        <img class="iphone-vertical" src="assets/iphone-vertical.png" alt="iphone vertical">
+        <img class="iphone-horizontal" src="assets/iphone-horizontal.png" alt="iphone horizontal">
+      </div>
+      <img src="assets/chev_next.png" alt="next" class="wrapper__chev">
+    </div>
+  </div>
+  <section class="services">
+    <div class="wrapper services__wrapper">
+      <h2 class="services__title">Our Services</h2>
+      <p class="services__description">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+      <div class="layout-3-column">
+        <article class="service">
+          <div class="service__ico">
+            <span class="circle">
+              <img src="assets/pen.svg" alt="pen" class="ico">
+            </span>
+          </div>
+          <div class="service__content">
+            <h3 class="service__title">Custom Design</h3>
+            <p class="service__description">Curabitur vestibulum eget mauris quis laoreet. Phasellus in quam laoreet, vivverra lacus ut, ultrices velit.</p>
+          </div>
+        </article>
+        <article class="service">
+          <div class="service__ico">
+            <span class="circle">
+              <img src="assets/bulb.svg" alt="bulb" class="ico">
+            </span>
+          </div>
+          <div class="service__content">
+            <h3 class="service__title">Inovative Ideas</h3>
+            <p class="service__description">Quisque luctus, quam eget molestie commodo, lacus purus curus purus, nec rutrum tellus dolor id lorem.</p>
+          </div>
+        </article>
+        <article class="service">
+          <div class="service__ico">
+            <span class="circle">
+              <img src="assets/heart.svg" alt="heart" class="ico">
+            </span>
+          </div>
+          <div class="service__content">
+            <h3 class="service__title">Love Is The Answer</h3>
+            <p class="service__description">Nulla sed nunc et toror luctus faucibus. Morbi at aliquet turpis, et consequat felis. Quisque condimentum.</p>
+          </div>
+        </article>
+        <article class="service">
+          <div class="service__ico">
+            <span class="circle">
+              <img src="assets/phone.svg" alt="phone" class="ico">
+            </span>
+          </div>
+          <div class="service__content">
+            <h3 class="service__title">Responsive Layout</h3>
+            <p class="service__description">Sed porttitor placerat rhoncus. In at nunc tellus. Maecenas blandit nunc ligula. Praesent elit leo.</p>
+          </div>
+        </article>
+        <article class="service">
+          <div class="service__ico">
+            <span class="circle">
+              <img src="assets/bubble.svg" alt="bubble" class="ico">
+            </span>
+          </div>
+          <div class="service__content">
+            <h3 class="service__title">24/ 7 Support</h3>
+            <p class="service__description">Vivamus vel quam lacinia, tincidunt dui non, vehicula nisi. Nulla a semerat. Pellentesque egestas venenatis lorem.</p>
+          </div>
+        </article>
+        <article class="service">
+          <div class="service__ico">
+            <span class="circle">
+              <img src="assets/star.svg" alt="star" class="ico">
+            </span>
+          </div>
+          <div class="service__content">
+            <h3 class="service__title">Feel Like A Star</h3>
+            <p class="service__description">Quisque hendrerit purus dapibus, ornare nibh vitae, viverra nibh. Fusce vitae aliquam tellus.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 </body>
-</html>
