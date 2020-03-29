@@ -1,188 +1,220 @@
-// Navigation
-const navigationElement = document.querySelector("#navigation");
+const MENU = document.getElementById('menu')
+const FILTERS = document.getElementById('filters')
+const WORK_EXAMPLES = document.getElementById('workExamples')
+const SLIDER_BLOCK = document.getElementById('sliderBlock')
+const SLIDER = document.getElementById('slider')
+const BACK = document.getElementById('back')
+const NEXT = document.getElementById('next')
+const PHONE_1 = document.getElementById('phone1')
+const PHONE_2 = document.getElementById('phone2')
+const PHONE_3 = document.getElementById('phone3')
+const SUBMIT_FORM = document.getElementById('submitForm')
+const SUBMIT_FORM_OK = document.getElementById('submitFormOk')
+const SUBMIT_FORM_OK_CLOSE = document.getElementById('submitFormOkClose')
+const MESSAGE = document.getElementById('message')
+const INPUT_NAME = document.getElementById('input-name')
+const INPUT_EMAIL = document.getElementById('input-email')
+const INPUT_SUBJECT = document.getElementById('input-subject')
+const INPUT_DETAILS = document.getElementById('input-details')
+const BURGER_MENU_BUTTON = document.getElementById('burgerMenuButton')
+const NAV = document.getElementById('nav')
+const LOGO = document.getElementById('logo')
 
-navigationElement.addEventListener("click", event => {
-  setActive("navigation__link", "navigation__link_active", event);
-});
+let SLIDER_ACTIVE_BLOCK = 1
+let SLIDER_ACTIVE_BLOCK_PREW = 1
+let MENU_POSITION = 0
 
-// Slider
-const arrowLeftElement = document.querySelector(".arrow-left");
-const arrowRightElement = document.querySelector(".arrow-right");
-const slideElements = document.querySelectorAll(".slide");
+let workExamplesElements = []
+WORK_EXAMPLES.querySelectorAll('li').forEach(el =>  workExamplesElements.push(el.outerHTML))
 
-let currentSlide = 0;
-let isEnable = true;
-
-arrowLeftElement.addEventListener("click", () => {
-  if (isEnable) {
-    showPreviousSlide(currentSlide);
-  }
-});
-
-arrowRightElement.addEventListener("click", () => {
-  if (isEnable) {
-    showNextSlide(currentSlide);
-  }
-});
-
-function showPreviousSlide(currentSlide) {
-  hideSlide("to-right");
-  changeCurrentSlide(currentSlide - 1);
-  showSlide("from-left");
+let shuffle = (arr, position) => {
+    let resultArr = []
+    for(let i = 0; i<arr.length;i++){
+        let j = (position+i) % arr.length
+        resultArr[i] = arr[j]
+    }
+    return resultArr
 }
 
-function showNextSlide(currentSlide) {
-  hideSlide("to-left");
-  changeCurrentSlide(currentSlide + 1);
-  showSlide("from-right");
+MENU.addEventListener('click', (event) => {
+
+    MENU.querySelectorAll('li > a').forEach(el => { el.classList.remove('active') });
+    event.target.classList.add('active');
+    MENU_POSITION = 0
+    NAV.classList.remove('nav0')
+    LOGO.classList.remove('logoPosition')
+    BURGER_MENU_BUTTON.classList.remove('activeMenu')
+})
+
+let sliderLeft = (argument, i) => {
+    argument.style.left = i + '%'
 }
 
-function hideSlide(direction) {
-  isEnable = false;
-  slideElements[currentSlide].classList.add(direction);
-  slideElements[currentSlide].addEventListener("animationend", function() {
-    this.classList.remove("slide_active", direction);
-  });
+NEXT.onclick = () => {
+    SLIDER.querySelectorAll('div > .slide').forEach(el => el.classList.remove('active'));
+    SLIDER_ACTIVE_BLOCK--
+    SLIDER_ACTIVE_BLOCK = (SLIDER_ACTIVE_BLOCK < 1 ? SLIDER.querySelectorAll('div > .slide').length : SLIDER_ACTIVE_BLOCK);
+    SLIDER_ACTIVE_BLOCK_PREW = SLIDER_ACTIVE_BLOCK - 1
+    SLIDER_ACTIVE_BLOCK_PREW = (SLIDER_ACTIVE_BLOCK_PREW < 1 ? SLIDER.querySelectorAll('div > .slide').length : SLIDER_ACTIVE_BLOCK_PREW);
+
+    sliderLeft(SLIDER.querySelectorAll('div > .slide')[SLIDER_ACTIVE_BLOCK - 1], -100)
+    sliderLeft(SLIDER.querySelectorAll('div > .slide')[SLIDER_ACTIVE_BLOCK_PREW - 1], 0)
+    SLIDER.querySelectorAll('div > .slide')[SLIDER_ACTIVE_BLOCK - 1].classList.add('active');
+    SLIDER.querySelectorAll('div > .slide')[SLIDER_ACTIVE_BLOCK_PREW - 1].classList.add('active');
+    let i = 0
+    let fanctionNew = () => {
+        if (i < 101) {
+            sliderLeft((SLIDER.querySelectorAll('div > .slide')[SLIDER_ACTIVE_BLOCK - 1]), (-100 + i))
+            sliderLeft((SLIDER.querySelectorAll('div > .slide')[SLIDER_ACTIVE_BLOCK_PREW - 1]), i)
+            i++
+            setTimeout(fanctionNew, 5)
+        }
+    }
+    fanctionNew()
 }
 
-function changeCurrentSlide(newSlide) {
-  currentSlide = (slideElements.length + newSlide) % slideElements.length;
+
+BACK.onclick = () => {
+    SLIDER.querySelectorAll('div > .slide').forEach(el => el.classList.remove('active'));
+    SLIDER_ACTIVE_BLOCK++
+    SLIDER_ACTIVE_BLOCK = (SLIDER_ACTIVE_BLOCK > SLIDER.querySelectorAll('div > .slide').length ? 1 : SLIDER_ACTIVE_BLOCK);
+    SLIDER_ACTIVE_BLOCK_PREW = SLIDER_ACTIVE_BLOCK + 1
+    SLIDER_ACTIVE_BLOCK_PREW = (SLIDER_ACTIVE_BLOCK_PREW > SLIDER.querySelectorAll('div > .slide').length ? 1 : SLIDER_ACTIVE_BLOCK_PREW);
+
+    sliderLeft(SLIDER.querySelectorAll('div > .slide')[SLIDER_ACTIVE_BLOCK - 1], 100)
+    sliderLeft(SLIDER.querySelectorAll('div > .slide')[SLIDER_ACTIVE_BLOCK_PREW - 1], 0)
+    SLIDER.querySelectorAll('div > .slide')[SLIDER_ACTIVE_BLOCK - 1].classList.add('active');
+    SLIDER.querySelectorAll('div > .slide')[SLIDER_ACTIVE_BLOCK_PREW - 1].classList.add('active');
+    let i = 100
+    let fanctionNew = () => {
+        if (i > -1) {
+            sliderLeft((SLIDER.querySelectorAll('div > .slide')[SLIDER_ACTIVE_BLOCK - 1]), i)
+            sliderLeft((SLIDER.querySelectorAll('div > .slide')[SLIDER_ACTIVE_BLOCK_PREW - 1]), (i - 100))
+            i--
+            setTimeout(fanctionNew, 5)
+        }
+    }
+    fanctionNew()
+
 }
 
-function showSlide(direction) {
-  slideElements[currentSlide].classList.add("next-slide", direction);
-  slideElements[currentSlide].addEventListener("animationend", function() {
-    this.classList.remove("next-slide", direction);
-    this.classList.add("slide_active");
-    isEnable = true;
-  });
+
+FILTERS.addEventListener('click', (event) => {
+    FILTERS.querySelectorAll('button').forEach(el => el.classList.remove('active'));
+    if (event.target.textContent == "All") {
+        WORK_EXAMPLES.innerHTML = workExamplesElements
+    } else if (event.target.textContent == "Web Design") {
+        WORK_EXAMPLES.innerHTML = shuffle(workExamplesElements , 3)
+    } else if (event.target.textContent == "Graphic Design") {
+        WORK_EXAMPLES.innerHTML = shuffle(workExamplesElements, 6)
+    } else if (event.target.textContent == "Artwork") {
+        WORK_EXAMPLES.innerHTML = shuffle(workExamplesElements, 9)
+    }
+
+    event.target.classList.add('active');
+})
+
+WORK_EXAMPLES.addEventListener('click', (event) => {
+    WORK_EXAMPLES.querySelectorAll('li').forEach(el => el.querySelector('img').classList.remove('active'));
+    console.log(event.target)
+    event.target.classList.add('active');
+})
+
+PHONE_1.addEventListener('click', (event) => {
+    !PHONE_1.querySelector('.phoneLeftBackground').classList[1]
+        ? PHONE_1.querySelector('.phoneLeftBackground').classList.add('displayNone')
+        : PHONE_1.querySelector('.phoneLeftBackground').classList.remove('displayNone')
+})
+
+PHONE_2.addEventListener('click', (event) => {
+    !PHONE_2.querySelector('.phoneRightBackground').classList[1]
+        ? PHONE_2.querySelector('.phoneRightBackground').classList.add('displayNone')
+        : PHONE_2.querySelector('.phoneRightBackground').classList.remove('displayNone')
+})
+
+PHONE_3.addEventListener('click', (event) => {
+    !PHONE_3.querySelector('.phoneCenter').classList[1]
+        ? PHONE_3.querySelector('.phoneCenter').classList.add('displayNone')
+        : PHONE_3.querySelector('.phoneCenter').classList.remove('displayNone')
+})
+
+let form = () => {
+    let subject = INPUT_SUBJECT.value
+    let details = INPUT_DETAILS.value
+    if (INPUT_EMAIL.value && INPUT_NAME.value) {
+        if (!subject) {
+            subject = "Without subject"
+        } else {
+            subject = "Subject: " + subject
+        }
+        if (!details) {
+            details = "Without description "
+        } else {
+            details = "Description: " + details
+        }
+        SUBMIT_FORM_OK.classList.remove('displayNone')
+        MESSAGE.innerHTML = "<p>" + subject + "</p><p>" + details + "</p>"
+        INPUT_SUBJECT.value = ""
+        INPUT_EMAIL.value = ""
+        INPUT_NAME.value = ""
+        INPUT_DETAILS.value = ""
+    }
 }
 
-// Screen switcher
-const slide1Element = document.querySelector(".slide-1");
-
-slide1Element.addEventListener("click", event => {
-  let phoneSelectedElement = event.target.closest(".base");
-
-  if (phoneSelectedElement) {
-    changeScreenMode(phoneSelectedElement);
-  }
-});
-
-function changeScreenMode(phoneSelected) {
-  const screenSelectedElement = phoneSelected.querySelector(".screen");
-
-  let currentMode;
-  let newMode;
-
-  if (screenSelectedElement.classList.contains("screen_on")) {
-    currentMode = "screen_on";
-    newMode = "screen_off";
-  } else {
-    currentMode = "screen_off";
-    newMode = "screen_on";
-  }
-
-  screenSelectedElement.classList.remove(`${currentMode}`);
-  screenSelectedElement.classList.add(`${newMode}`);
+submitFormOkClose.onclick = () => {
+    SUBMIT_FORM_OK.classList.add('displayNone')
 }
 
-//Portfolio
-const portfolioButtonsElements = document.querySelector(".portfolio__buttons");
-const galleryElement = document.querySelector(".gallery");
-const picturesElements = document.querySelectorAll(".gallery__picture");
 
-portfolioButtonsElements.addEventListener("click", event => {
-  if (event.target.classList.contains("portfolio__button")) {
-    reorderPictures();
-  }
-  setActive("portfolio__button", "button_bordered", event);
-  picturesElements.forEach(picture => {
-    picture.classList.remove("gallery__picture_active");
-  });
-});
 
-function reorderPictures() {
-  const firstPicture = galleryElement.children[0];
-  const firstPictureCopy = firstPicture.cloneNode();
-  firstPicture.remove();
-  galleryElement.append(firstPictureCopy);
+let onScroll = (ev) => {
+    let position = window.scrollY
+    let winHeight = document.documentElement.clientHeight
+    let scrollHeight = Math.max(
+        document.body.scrollHeight, document.documentElement.scrollHeight,
+        document.body.offsetHeight, document.documentElement.offsetHeight,
+        document.body.clientHeight, document.documentElement.clientHeight
+      )
+
+    document.querySelectorAll('main>section').forEach((el) => {
+        if (position === 0){
+            MENU.querySelectorAll('li > a').forEach(a => {
+                a.classList.remove('active')
+                if (a.innerHTML == 'HOME'){
+                    a.classList.add('active')
+                }
+            });
+        } else if (position === scrollHeight-winHeight) {
+            MENU.querySelectorAll('li > a').forEach(a => {
+                a.classList.remove('active')
+                if (a.innerHTML == 'CONTACT'){
+                    a.classList.add('active')
+                }
+            });
+        } else if (el.offsetTop <= (position + 95) && (el.offsetTop + el.offsetHeight) > (position + 95)) {
+            MENU.querySelectorAll('li > a').forEach(a => {
+                a.classList.remove('active')
+                if (el.getAttribute('id') === a.getAttribute('href').substring(1)) {
+                    a.classList.add('active')
+                }
+            });
+        }
+    })
 }
 
-galleryElement.addEventListener("click", event => {
-  setActive(`gallery__picture`, `gallery__picture_active`, event);
-});
+document.addEventListener('scroll', onScroll)
 
-function setActive(elementsClass, activeClass, event) {
-  if (event.target.classList.contains(`${elementsClass}`)) {
-    const elements = document.querySelectorAll(`.${elementsClass}`);
-    elements.forEach(element => {
-      element.classList.remove(`${activeClass}`);
-    });
-    event.target.closest(`.${elementsClass}`).classList.add(`${activeClass}`);
-  }
-}
+BURGER_MENU_BUTTON.addEventListener('click', (event) => {
+    if (MENU_POSITION === 0){
+        MENU_POSITION = 1
+        NAV.classList.add('nav0')
+        BURGER_MENU_BUTTON.classList.add('activeMenu')
+        LOGO.classList.add('logoPosition')
+    } else if (MENU_POSITION === 1){
+        MENU_POSITION = 0
+        NAV.classList.remove('nav0')
+        BURGER_MENU_BUTTON.classList.remove('activeMenu')
+        LOGO.classList.remove('logoPosition')
+    }
 
-// Calculating scrollbar width
-const divTest = document.createElement("div");
-
-divTest.style.overflowY = "scroll";
-divTest.style.width = "50px";
-divTest.style.height = "50px";
-
-document.body.append(divTest);
-
-const scrollWidth = divTest.offsetWidth - divTest.clientWidth;
-
-divTest.remove();
-
-// Form submit
-const formElement = document.querySelector("#form");
-const submitFormButton = document.querySelector("#contact-form-submit");
-const modalWrapperElement = document.querySelector(".modal-wrapper");
-const nameInput = document.querySelector("#name");
-const emailInput = document.querySelector("#email");
-const subjectInput = document.querySelector("#subject");
-const textareaInput = document.querySelector("#textarea");
-const modalSubjectElement = document.querySelector("#modal-subject");
-const modalDescriptionElement = document.querySelector("#modal-description");
-const modalCloseButton = document.querySelector("#modal-close-button");
-
-submitFormButton.addEventListener("click", event => {
-  event.preventDefault();
-
-  if (!nameInput.value) {
-    nameInput.classList.add("invalid");
-  }
-
-  if (!emailInput.value) {
-    emailInput.classList.add("invalid");
-  }
-
-  if (nameInput.value && emailInput.value) {
-    modalWrapperElement.classList.remove("visually-hidden");
-    modalSubjectElement.innerText = subjectInput.value
-      ? `Subject: ${subjectInput.value}`
-      : "Without subject";
-    modalDescriptionElement.innerText = textareaInput.value
-      ? `Description: ${textareaInput.value}`
-      : "Without description";
-    document.body.classList.add("locked");
-    document.body.style.paddingRight = `${scrollWidth}px`;
-  }
-});
-
-modalCloseButton.addEventListener("click", () => {
-  modalWrapperElement.classList.add("visually-hidden");
-  document.body.classList.remove("locked");
-  formElement.reset();
-  document.body.style.paddingRight = "";
-});
-
-nameInput.addEventListener("focus", function() {
-  this.classList.remove("invalid");
-});
-
-emailInput.addEventListener("focus", function() {
-  this.classList.remove("invalid");
-});
+})
